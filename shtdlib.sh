@@ -854,7 +854,7 @@ function add_on_mod {
     # shellcheck disable=2015
     shopt_decorator "${FUNCNAME[0]}" "${@:-}" && return || conditional_exit_on_fail 121 "Failed to run ${FUNCNAME[0]} with shopt_decorator" 
     if whichs inotifywait ; then
-        file_monitor_command="inotifywait --monitor --recursive --format %w%f
+        file_monitor_command="inotifywait --monitor --recursive --format %e:%w%f
                                    --event modify
                                    --event close_write
                                    --event moved_to
